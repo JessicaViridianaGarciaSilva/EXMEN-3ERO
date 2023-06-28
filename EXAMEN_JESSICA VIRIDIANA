@@ -1,0 +1,231 @@
+/*---------------------------------CREACION DE TABLAS---------------------------------*/
+create table Productos(   
+id_producto number(10),
+nombre_pro char(50) ,
+precio_pro number(4),
+num_tipo_pro number(10),
+num_mar_pro number(10) 
+);
+
+/*tabla 2 que contendra los tipos de los productos de arriba*/
+create table tabla_tipo(     
+id_tipo number(10),
+tipo_producto nvarchar2(50)
+);
+
+
+/*tabla 3 que contendra las marcas de los productos de arriba*/
+create table tabla_marca( 
+id_marca number(10),
+marca_producto nvarchar2(30) 
+);
+
+
+/*---------------------------------DATOS A INSERTAR---------------------------------*/
+
+insert into Productos values (1,'Bimbuñuelos',20,4,1);
+insert into Productos values (2,'Donas azucaradas',18,1,1);
+insert into Productos values (3,'Nito',15,1,1);
+insert into Productos values (4,'Donitas espolvoreadas',21,1,1);
+insert into Productos values (5,'Roles de canela',24,1,1);
+insert into Productos values (6,'Roles con glaceado',26,1,1);
+insert into Productos values (7,'Crossantines choco',12,1,1);
+insert into Productos values (8,'Panque de nuez',38,1,1);
+insert into Productos values (9,'Panque de pasas',35,1,1);
+insert into Productos values (10,'Mantecadas',25,1,1);
+insert into Productos values (11,'Pinguinos',20,1,2);
+insert into Productos values (12,'Rebanadas',12,4,1);
+insert into Productos values (13,'Boing guayaba 1L',27,3,3);
+insert into Productos values (14,'Boing manzanaa 1L',27,3,3);
+insert into Productos values (15,'Boing uva 1L',27,3,3);
+insert into Productos values (16,'Boing mango 1L',27,3,3);
+insert into Productos values (17,'Boing guayaba 1/2L',17,3,3);
+insert into Productos values (18,'Boing manzana 1/2L',17,3,3);
+insert into Productos values (19,'Boing uva 1/2L',17,3,3);
+insert into Productos values (20,'Boing mango 1/2L',17,3,3);
+insert into Productos values (21,'Barritas piña',15,4,2);
+insert into Productos values (22,'Barritas fresa',15,4,2);
+insert into Productos values (23,'Polvorones',20,4,2);
+insert into Productos values (24,'Principe',20,4,2);
+insert into Productos values (25,'Chocorrol',22,1,2);
+insert into Productos values (26,'Canelitas',20,4,2);
+insert into Productos values (27,'Trikitrakes',18,4,2);
+insert into Productos values (28,'Mini roco',5,1,2);
+insert into Productos values (29,'Dalmata',12,1,2);
+insert into Productos values (30,'Napolitano',22,1,2);
+insert into Productos values (31,'Sponch',22,4,2);
+insert into Productos values (32,'Emperador de chocolate',20,4,2);
+insert into Productos values (33,'Chocotorro',15,1,2);
+insert into Productos values (34,'Emperador de vainilla',20,4,2);
+insert into Productos values (35,'Emperador de avellana',20,4,2);
+insert into Productos values (36,'Sabritas naturales',18,2,4);
+insert into Productos values (37,'Sabritas adovadas',18,2,4);
+insert into Productos values (38,'Sabritas Receta Crujiente',18,2,4);
+insert into Productos values (39,'Doritos incognita',18,2,4);
+insert into Productos values (40,'Fritos Chipotle',17,2,4);
+insert into Productos values (41,'Doritos Flamint Hot',18,2,4);
+insert into Productos values (42,'Chetos Flamint Hot',15,2,4);
+insert into Productos values (43,'Cacahuate Mafer',23,2,4);
+insert into Productos values (44,'Rufles original',18,2,4);
+insert into Productos values (45,'Rufles queso',18,2,4);
+insert into Productos values (46,'Rancheritos',17,2,4);
+insert into Productos values (47,'Doritos Nachos',19,2,4);
+insert into Productos values (48,'Churrumais',15,2,4);
+insert into Productos values (49,'Chetos torciditos',17,2,4);
+insert into Productos values (50,'Paketaxo Flamint Hot',25,2,4);
+insert into Productos values (51,'Paketaxo Queso',25,2,4);
+insert into Productos values (52,'Doritos diablo',18,2,4);
+insert into Productos values (53,'Crujitos',17,2,4);
+insert into Productos values (54,'Chetos Bolita',15,2,4);
+insert into Productos values (55,'Chetos de queso',17,2,4);
+insert into Productos values (56,'Doritos Pizza',18,2,4);
+insert into Productos values (57,'Chetos de colmillo',18,2,4);
+insert into Productos values (58,'Takis fuego',18,2,4);
+insert into Productos values (59,'Takis guacamole',18,2,4);
+insert into Productos values (60,'Cacahuates',15,2,4);
+insert into Productos values (61,'Sabritas Jalapeño',18,2,4);
+insert into Productos values (62,'Sabritas Habanero',18,2,4);
+insert into Productos values (63,'Doritos dinamita',18,2,4);
+insert into Productos values (64,'Yoplait fresa',15,5,5);
+insert into Productos values (65,'Yoplait durazno',15,5,5);
+insert into Productos values (66,'Yoplait natural',15,5,5);
+insert into Productos values (67,'Flan',18,5,5);
+insert into Productos values (68,'Arroz con leche',18,5,5);
+insert into Productos values (69,'Yoplait choco pay',20,5,5);
+insert into Productos values (70,'Yoplait Placer',17,5,5);
+insert into Productos values (71,'Yoplait Max Protein',18,5,5);
+insert into Productos values (72,'Yoplait Licuado',18,5,5);
+insert into Productos values (73,'Yoplait griego fresa',15,5,5);
+insert into Productos values (74,'Yoplait almond',15,5,5);
+insert into Productos values (75,'Yoplait fresa fribra',15,5,5);
+
+
+
+/*-----------nextval/secuencias (llenar los id de los tipos de los productos)-----------*/
+create sequence sec_tip
+start with 1
+increment by 1
+maxvalue 200
+minvalue 0;
+/*-----------nextval/secuencias (llenar los id de las marcas de los productos)-----------*/
+create sequence sec_marc
+start with 1
+increment by 1
+maxvalue 200
+minvalue 0;
+
+/*-----------Trigger para llenar la tabla tipos haciendo uso de la sec_tipos-----------*/
+create or replace trigger tr_tipos
+before insert
+on Productos
+for each row
+begin
+if: new.num_tipo_pro = 1 then
+    insert into tabla_tipo values(sec_tip.nextval,'pan');
+    end if;
+if: new.num_tipo_pro = 2 then
+    insert into tabla_tipo values(sec_tip.nextval,'frituras');
+    end if;
+if: new.num_tipo_pro = 3 then
+    insert into tabla_tipo values(sec_tip.nextval,'bebidas');
+    end if;
+if: new.num_tipo_pro = 4 then
+    insert into tabla_tipo values(sec_tip.nextval,'galletas');
+    end if;
+if: new.num_tipo_pro = 5 then
+    insert into tabla_tipo values(sec_tip.nextval,'yogurt');
+    end if;
+    end;   
+    
+/*-----------Trigger para llenar la tabla marcas haciendo uso de sec_marcas-----------*/
+create or replace trigger tr_marcas
+before insert
+on Productos
+for each row
+begin
+if: new.num_mar_pro = 1 then
+    insert into tabla_marca values(sec_marc.nextval,'bimbo');
+    end if;
+if: new.num_mar_pro = 2 then
+    insert into tabla_marca values(sec_marc.nextval,'marinela');
+    end if;
+if: new.num_mar_pro = 3 then
+    insert into tabla_marca values(sec_marc.nextval,'boing');
+    end if;
+if: new.num_mar_pro = 4 then
+    insert into tabla_marca values(sec_marc.nextval,'sabritas');
+    end if;
+if: new.num_mar_pro = 5 then
+    insert into tabla_marca values(sec_marc.nextval,'yoplait');
+    end if;
+    end;
+
+
+/*----------------------------------JOINS-----------------------------------*/
+    
+/*5 DATOS EN TABLA_TIPO QUE NO TIENEN RELACION CON LA TABLA BRODUCTOS*/
+insert into tabla_tipo values(76,'blusa');
+insert into tabla_tipo values(77,'goma');
+insert into tabla_tipo values(78,'pozole');
+insert into tabla_tipo values(79,'camarones');
+insert into tabla_tipo values(80,'fresas con crema');
+/*5 DATOS EN TABLA_MARCA QUE NO TIENEN RELACION CON LA TABLA BRODUCTOS*/
+insert into tabla_marca values(76,'zara');
+insert into tabla_marca values(77,'factis');
+insert into tabla_marca values(78,'casa de toño');
+insert into tabla_marca values(79,'el mar');
+insert into tabla_marca values(80,'congelados');
+
+select Productos.nombre_pro, Productos.precio_pro, tabla_tipo.tipo_producto, tabla_marca.marca_producto from tabla_tipo full join tabla_marca on tabla_tipo.id_tipo=tabla_marca.id_marca full join Productos on Productos.id_producto=tabla_marca.id_marca;
+
+select Productos.nombre_pro, tabla_marca.marca_producto from Productos inner join tabla_marca on Productos.id_producto=tabla_marca.id_marca where tabla_marca.marca_producto='boing';
+
+select * from Productos left join tabla_tipo on Productos.id_producto=tabla_tipo.id_tipo where tabla_tipo.id_tipo is null;
+
+select * from Productos right join tabla_marca on Productos.id_producto=tabla_marca.id_marca where Productos.id_producto is not null;
+
+select * from Productos full join tabla_tipo on Productos.id_producto=tabla_tipo.id_tipo full join tabla_marca on Productos.id_producto=tabla_marca.id_marca where Productos.id_producto is null or tabla_tipo.id_tipo is null;
+
+select * from Productos inner join tabla_tipo on Productos.id_producto=tabla_tipo.id_tipo inner join tabla_marca on Productos.id_producto=tabla_marca.id_marca where Productos.nombre_pro like 't%' or Productos.nombre_pro like 'T%';
+
+
+
+/*MENSAJE------------------------------------------------------------*/
+create table mensaje(
+texto nvarchar2(100)
+);
+
+create or replace trigger tr_vital
+before insert 
+on Productos
+for each row when(new.nombre_pro like 'T%')
+begin
+    insert into mensaje values('Se inserto un producto con la vitamina T' ||:new.nombre_pro);
+    end tr_vital;
+
+insert into Productos values (82,'Tatuaje',15,5,5);
+
+/*VISTA-------------------------------------------------------------*/
+create view vista_productos as 
+select nombre_pro, precio_pro, marca_producto from Productos
+inner join tabla_marca on Productos.id_producto=tabla_marca.id_marca;
+ 
+select*from vista_productos;
+
+
+/*CONSULTAS---------------------------------------------------------*/
+   
+select*from mensaje;  
+drop table mensaje;
+    
+select*from Productos;
+drop table Productos;
+truncate table Productos;
+
+select * from tabla_tipo;
+drop table tabla_tipo;
+truncate table tabla_tipo;
+
+select*from tabla_marca;
+drop table tabla_marca;
+truncate table tabla_marca;
