@@ -191,7 +191,7 @@ select * from Productos inner join tabla_tipo on Productos.id_producto=tabla_tip
 
 
 /*MENSAJE------------------------------------------------------------*/
-create table mensaje(
+create table tabla_mensaje(
 texto nvarchar2(100)
 );
 
@@ -200,14 +200,14 @@ before insert
 on Productos
 for each row when(new.nombre_pro like 'T%')
 begin
-    insert into mensaje values('Se inserto un producto con la vitamina T' ||:new.nombre_pro);
+    insert into tabla_mensaje values('Se inserto un producto con la vitamina T' ||:new.nombre_pro);
     end tr_vital;
 
 insert into Productos values (82,'Tatuaje',15,5,5);
 
 /*VISTA-------------------------------------------------------------*/
 create view vista_productos as 
-select nombre_pro, precio_pro, marca_producto from Productos
+select Productos.nombre_pro, Productos.precio_pro, tabla_marca.marca_producto from Productos
 inner join tabla_marca on Productos.id_producto=tabla_marca.id_marca;
  
 select*from vista_productos;
@@ -215,17 +215,9 @@ select*from vista_productos;
 
 /*CONSULTAS---------------------------------------------------------*/
    
-select*from mensaje;  
-drop table mensaje;
+select*from tabla_mensaje;  
+drop table tabla_mensaje;
     
 select*from Productos;
 drop table Productos;
 truncate table Productos;
-
-select * from tabla_tipo;
-drop table tabla_tipo;
-truncate table tabla_tipo;
-
-select*from tabla_marca;
-drop table tabla_marca;
-truncate table tabla_marca;
